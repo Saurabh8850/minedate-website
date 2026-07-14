@@ -1,0 +1,156 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Support — Minedate</title>
+<meta name="description" content="Get help with Minedate. Contact support, read FAQs, and learn how to manage your account.">
+<link rel="icon" href="assets/app-icon.png">
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+<header class="nav"><div class="wrap">
+  <a class="brand" href="index.html"><img src="assets/logo.png" alt="Minedate logo">Minedate</a>
+  <nav class="nav-links"><a href="index.html">Home</a><a href="privacy.html">Privacy</a><a href="terms.html">Terms</a><a href="refund.html">Refund</a><a href="guidelines.html">Safety</a></nav>
+  <a class="btn btn-ghost" href="index.html">&#8592; Back</a>
+</div></header>
+
+<section class="legal-hero"><div class="wrap">
+  <div class="badge">&#128172;</div>
+  <h1 style="font-size:2.2rem">Support &amp; Help Centre</h1>
+  <p style="max-width:640px;color:var(--navy-light)">We're here to help. Reach us any time and we'll get back to you as soon as we can.</p>
+</div></section>
+
+<main class="legal-body">
+  <div class="card" style="display:flex;gap:16px;align-items:center;justify-content:space-between;flex-wrap:wrap;margin-bottom:34px">
+    <div>
+      <h3>Contact us</h3>
+      <p style="margin-top:4px">Email our team directly, or raise a support ticket below.</p>
+    </div>
+    <a class="btn btn-primary" href="mailto:support@minedate.app">support@minedate.app</a>
+  </div>
+
+  <!-- Support ticket form → creates a ticket in the Minedate admin panel -->
+  <h2 id="ticket">Raise a support ticket</h2>
+  <p style="margin-bottom:18px">Fill in the form and our team will get back to you by email. Your request goes straight to our support desk.</p>
+  <form class="form-card" id="ticketForm" autocomplete="on" novalidate>
+    <div class="form-row">
+      <div class="field">
+        <label for="name">Your name</label>
+        <input id="name" name="name" type="text" required placeholder="e.g. Aisha Sharma" maxlength="120">
+      </div>
+      <div class="field">
+        <label for="email">Email</label>
+        <input id="email" name="email" type="email" required placeholder="you@example.com" maxlength="160">
+      </div>
+    </div>
+    <div class="form-row">
+      <div class="field">
+        <label for="category">Enquiry type</label>
+        <select id="category" name="category" required>
+          <option value="" disabled selected>Select a type…</option>
+          <option>General question</option>
+          <option>Account &amp; profile</option>
+          <option>Payment / Refund</option>
+          <option>Report a user</option>
+          <option>Safety concern</option>
+          <option>Bug / Technical issue</option>
+          <option>Other</option>
+        </select>
+      </div>
+      <div class="field">
+        <label for="subject">Subject</label>
+        <input id="subject" name="subject" type="text" required placeholder="e.g. Payment not credited" maxlength="200">
+      </div>
+    </div>
+    <div class="field">
+      <label for="message">Message</label>
+      <textarea id="message" name="message" required placeholder="Describe your issue in detail. Include a payment ID if it's about a purchase." maxlength="4000"></textarea>
+    </div>
+    <button type="submit" class="btn btn-primary" id="submitBtn">Submit ticket</button>
+    <div class="form-note" id="formNote"></div>
+  </form>
+
+  <h2 style="margin-top:44px">Frequently asked questions</h2>
+
+  <h3 style="margin-top:22px">How do I sign in?</h3>
+  <p>Minedate uses secure phone-number sign-in. Enter your number, receive a one-time code (OTP) by SMS, and enter it to log in — no passwords needed.</p>
+
+  <h3 style="margin-top:22px">How does matching work?</h3>
+  <p>You discover people near you and like the profiles you're interested in. When two people like each other, it's a match — and you can start chatting, calling, and connecting.</p>
+
+  <h3 style="margin-top:22px">How do I manage or delete my account?</h3>
+  <p>Open the app → <strong>Profile → Settings</strong>. From there you can edit your profile, control notifications and location, or permanently delete your account and all associated data.</p>
+
+  <h3 style="margin-top:22px">How do I report or block someone?</h3>
+  <p>Open the person's profile or your chat with them and tap <strong>Block</strong> or <strong>Report</strong>. Reports are private and reviewed by our safety team. See our <a href="guidelines.html" style="color:var(--green)">Guidelines &amp; Safety</a> page for more.</p>
+
+  <h3 style="margin-top:22px">I paid but didn't receive coins or premium — what do I do?</h3>
+  <p>Purchases are usually credited within seconds. If something didn't activate, email us your payment ID at <a href="mailto:support@minedate.app" style="color:var(--green)">support@minedate.app</a> and we'll resolve it. See the <a href="refund.html" style="color:var(--green)">Refund Policy</a>.</p>
+
+  <h3 style="margin-top:22px">Is Minedate safe?</h3>
+  <p>Yes — your phone number is never shown, only approximate distance is displayed, only matched users can message you, and every report is reviewed. Read more on our <a href="guidelines.html" style="color:var(--green)">Guidelines &amp; Safety</a> page.</p>
+
+  <h3 style="margin-top:22px">Who can use Minedate?</h3>
+  <p>Minedate is strictly for adults aged 18 and over.</p>
+</main>
+
+<footer><div class="wrap"><div class="foot-bottom" style="border:none">
+  <span>© 2026 Minedate. All rights reserved.</span>
+  <span><a href="privacy.html" style="display:inline;color:#a9c0cd">Privacy</a> · <a href="terms.html" style="display:inline;color:#a9c0cd">Terms</a></span>
+</div></div></footer>
+
+<script>
+  // Submits the support ticket to the Minedate backend (shows in the admin panel).
+  const SUPABASE_URL = "https://nhuzhlzvkvuktlrjmlms.supabase.co";
+  const ANON_KEY = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Im5odXpobHp2a3Z1a3RscmptbG1zIiwicm9sZSI6ImFub24iLCJpYXQiOjE3ODIzNjU5NDcsImV4cCI6MjA5Nzk0MTk0N30.ppNp9iULt66JN0TpYKY2-L-t2O6g_f-oUR-OUykJ0_w";
+
+  const form = document.getElementById("ticketForm");
+  const note = document.getElementById("formNote");
+  const btn = document.getElementById("submitBtn");
+
+  form.addEventListener("submit", async (e) => {
+    e.preventDefault();
+    note.className = "form-note";
+    const payload = {
+      name: form.name.value.trim(),
+      email: form.email.value.trim(),
+      category: form.category.value,
+      subject: form.subject.value.trim(),
+      message: form.message.value.trim(),
+    };
+    if (!payload.name || !payload.email || !payload.category || !payload.subject || !payload.message) {
+      note.textContent = "Please fill in all fields.";
+      note.className = "form-note err";
+      return;
+    }
+    btn.disabled = true;
+    btn.textContent = "Submitting…";
+    try {
+      const res = await fetch(`${SUPABASE_URL}/functions/v1/submit-support-ticket`, {
+        method: "POST",
+        headers: { "Content-Type": "application/json", "apikey": ANON_KEY, "Authorization": "Bearer " + ANON_KEY },
+        body: JSON.stringify(payload),
+      });
+      const data = await res.json().catch(() => ({}));
+      if (res.ok && data.success) {
+        form.reset();
+        note.textContent = "✓ Thanks! Your ticket has been submitted. We'll reply to your email soon.";
+        note.className = "form-note ok";
+      } else {
+        note.textContent = data.error || "Could not submit. Please try again or email support@minedate.app.";
+        note.className = "form-note err";
+      }
+    } catch (err) {
+      note.textContent = "Network error. Please try again or email support@minedate.app.";
+      note.className = "form-note err";
+    } finally {
+      btn.disabled = false;
+      btn.textContent = "Submit ticket";
+    }
+  });
+</script>
+
+</body>
+</html>
